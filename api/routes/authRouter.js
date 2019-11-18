@@ -24,7 +24,8 @@ authRouter.post("/register", (req, res) => {
 
   const newUser = {
     username: req.body.username,
-    password: hash
+    email: req.body.email,
+    password: hash,
   };
 
   Users.addUser(newUser)
