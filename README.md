@@ -2,8 +2,14 @@
 
 ## Endpoints:
 
-POST `/register`: requires `username`, `password`, `email`
+POST `/api/register`: requires `username`, `password`, `email`
 
-POST `/login`: requires `username`, `password`
+POST `/api/login`: requires `username`, `password`
 
-GET `/api/jokes`: TODO
+GET `/api/jokes`: protected
+
+POST `/api/jokes`: protected, requires `setup` and `punchline`
+
+PUT `/api/jokes/:id`: protected
+
+DELETE `/api/jokes/:id`: protected
