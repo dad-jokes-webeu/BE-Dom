@@ -12,4 +12,4 @@ POST `/api/jokes`: protected, requires `setup` and `punchline`
 
 PUT `/api/jokes/:id`: protected
 
-DELETE `/api/jokes/:id`: protected
+DELETE `/api/jokes/:id`: protected, testing
