@@ -24,7 +24,7 @@ jokesRouter.put('/:id', restricted, async (req, res) => {
 
 jokesRouter.delete('/:id', restricted, async (req, res) => {
     const deletedJoke = await Jokes.deleteJoke(req.params.id, req.body)
-    res.json({message: "Deleted the following joke:", joke: deletedJoke })
+    res.json({message: "Joke deleted"})
 })
 
 module.exports = jokesRouter;

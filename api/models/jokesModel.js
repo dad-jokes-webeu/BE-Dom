@@ -21,11 +21,9 @@ function updateJoke(id, joke) {
 }
 
 function deleteJoke(id, joke) {
-  const deletedJoke = getJokeById(id);
-  db("jokes")
+  return db("jokes")
     .where({ id })
     .del();
-  return deletedJoke;
 }
 
 module.exports = {
