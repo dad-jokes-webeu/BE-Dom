@@ -1,0 +1,7 @@
+{
+    "name": "Dad Jokes",
+    "version": "0.1.0",
+    "description": "Documentation for Dom's Dad Jokes backend",
+    "title": "Dad Jokes Docs",
+    "url" : "https://dad-jokes-backend.herokuapp.com"
+  }
