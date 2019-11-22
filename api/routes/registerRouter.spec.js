@@ -2,11 +2,8 @@ const request = require("supertest");
 const server = require("../server");
 const db = require("../../data/dbConfig");
 
-const registerEndpoint =
-  "https://dadjokes-backend-dom.herokuapp.com/api/register";
-
 const testUser = {
-  username: "luojo",
+  username: "luoji",
   password: "darkforest",
   email: "luoji@gmail.com"
 };
