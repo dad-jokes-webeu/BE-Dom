@@ -8,8 +8,7 @@ beforeEach(() => {
 
 describe('/api/login endpoint', () => {
     describe('[POST] /api/login', () => {
-        test('responds with a 201 to a properly formatted POST from an existing user', async () => {
-            const testUser = await db('users').where({ username: 'Dom' });
+        test('responds with a 200 to a properly formatted POST from an existing user', async () => {
             const response = await request(server)
                 .post('/api/login')
                 .send({ username: 'Dom', password: 'dom123'})
