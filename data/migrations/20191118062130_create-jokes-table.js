@@ -22,10 +22,11 @@ exports.up = function(knex) {
         .unsigned()
         .notNullable()
         .references("id")
-        .inTable("users");
+        .inTable("users")
+        .onDelete('CASCADE');
     });
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('users').dropTableIfExists('jokes')
+    return knex.schema.dropTableIfExists('jokes').dropTableIfExists('users')
 };

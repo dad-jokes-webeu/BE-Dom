@@ -22,20 +22,24 @@ module.exports = {
     useNullAsDefault: true,
   },
 
-  staging: {
-    client: 'postgresql',
+  testing: {
+    client: 'sqlite3',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      filename: './data/users.db3'
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: './data/migrations'
+    },
+    seeds: {
+      directory: './data/seeds'
+    },
+    pool: {
+      afterCreate: (conn, done) => {
+        // runs after a connection is made to the sqlite engine
+        conn.run('PRAGMA foreign_keys = ON', done); // turn on FK enforcement
+      },
+    },
+    useNullAsDefault: true,
   },
 
   production: {
@@ -46,7 +50,7 @@ module.exports = {
     },
     seeds: {
       directory: './data/seeds'
-    }
+    },
   }
 
 };

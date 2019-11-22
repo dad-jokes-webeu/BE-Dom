@@ -4,6 +4,10 @@ function getJokes() {
   return db("jokes");
 }
 
+function getPublicJokes() {
+  return db('jokes').where({ public: true})
+}
+
 function getJokeById(id) {
   return db("jokes")
     .where({ id })
@@ -28,6 +32,7 @@ function deleteJoke(id, joke) {
 
 module.exports = {
   getJokes,
+  getPublicJokes,
   getJokeById,
   addJoke,
   updateJoke,

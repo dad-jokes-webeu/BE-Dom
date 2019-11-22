@@ -2,9 +2,22 @@ const jokesRouter = require('express').Router();
 const Jokes = require('../models/jokesModel')
 const { restricted } = require('../../middleware/index');
 
-jokesRouter.get('/', restricted, async (req, res) => {
-    const jokes = await Jokes.getJokes();
-    res.json(jokes);
+jokesRouter.get('/', async (req, res) => {
+    const token = req.headers.authorization;
+    if (token) {
+      jwt.verify(token, secrets.jwtSecret, (err, decodedToken) => {
+        if (err) {
+          res.status(401).json({ message: 'Invalid credentials, token not valid'});
+        } else {
+          req.decodedJwt = decodedToken;
+          console.log('Decoded Token: ', req.decodedJwt);
+          const jokes = Jokes.getJokes()
+          res.status(200).json(jokes);
+        }
+      })
+    } else {
+        res.json({ message: "User not logged in"})
+    }
 })
 
 jokesRouter.get('/:id', restricted, async(req, res) => {
